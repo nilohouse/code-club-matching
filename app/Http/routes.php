@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/novo-voluntario', function() {
+	return view('volunteer_form');
+});
+
+Route::post('/registrar-voluntario', 'VolunteerController@register');
