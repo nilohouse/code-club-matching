@@ -1,17 +1,11 @@
 var elixir = require('laravel-elixir');
-//var bowerDir = 'vendor/bower_components/';
-
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
+var bowerDir = 'vendor/bower_components/';
+var codeClubDir = bowerDir + 'code-club/dist/';
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+    mix
+    .copy(codeClubDir + 'images/favicons/favicon.ico', 'public/favicon.ico')
+    .copy(codeClubDir + 'images/favicons/icon.png', 'public/icon.png')
+    .copy(codeClubDir + 'stylesheets/code-club.min.css', 'public/css/code-club.min.css')
+    .less('app.less');
 });
