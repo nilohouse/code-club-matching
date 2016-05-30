@@ -20,6 +20,7 @@ class CreateVolunteerTable extends Migration
             $table->date('birth');
             $table->string('zipcode')->index();
             $table->string('avatar')->nullable();
+            $table->boolean('confirmed');
             $table->softDeletes();
             $table->timestamps();
         });

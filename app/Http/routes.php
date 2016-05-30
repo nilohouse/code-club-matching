@@ -20,3 +20,5 @@ Route::get('/novo-voluntario', function() {
 });
 
 Route::post('/registrar-voluntario', 'VolunteerController@register');
+
+Route::get('/confirmar-voluntario/{token}', 'VolunteerController@confirm');

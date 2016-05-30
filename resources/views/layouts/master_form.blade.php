@@ -1,8 +1,8 @@
 <html>
     <head>
         <title>Code Club Brasil - @yield('subtitle')</title>
-        <link rel="stylesheet" type="text/css" href="css/app.css">
-        <link rel="stylesheet" type="text/css" href="css/code-club.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        <link rel="stylesheet" type="text/css" href="/css/code-club.min.css">
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="apple-touch-icon-precomposed" href="icon.png">
         <meta name="msapplication-TileColor" content="#F5F6F9">
