@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Exceptions;
-
+use Log;
 use Exception;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
@@ -45,6 +45,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($e instanceof ModelNotFoundException) {
+            Log::warning('Model not found for URL: ' . $request->path);
+            return response()->view('errors.custom', [], 404);
+        }
+
         return parent::render($request, $e);
     }
 }
