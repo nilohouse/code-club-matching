@@ -156,6 +156,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * HttpClient Service Provider
+         */
+        Vinelab\Http\HttpServiceProvider::class
+
     ],
 
     /*
