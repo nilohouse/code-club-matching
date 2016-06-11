@@ -6,7 +6,6 @@
     <form class="c-form" action="registrar-voluntario" method="POST">
     {{ csrf_field() }}
         <fieldset class="c-form__fieldset">
-            <legend class="c-form__legend">Cadastro de voluntários</legend>
             <input class="c-form__input c-form__input--width-xl" name="name" placeholder="Seu nome" type="text">
             <input class="c-form__input c-form__input--width-xl" name="email" placeholder="Seu e-mail" type="text">
             <input class="c-form__input c-form__input--width-xl" name="birth" placeholder="Data de nascimento" type="text">
