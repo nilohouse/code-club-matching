@@ -159,8 +159,12 @@ return [
         /*
          * HttpClient Service Provider
          */
-        Vinelab\Http\HttpServiceProvider::class
+        Vinelab\Http\HttpServiceProvider::class,
 
+        /*
+         * Code Club BR Serviice Provider
+         */
+        App\Providers\CodeClubBRServiceProvider::class
     ],
 
     /*
