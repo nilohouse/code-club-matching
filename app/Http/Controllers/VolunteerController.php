@@ -41,8 +41,7 @@ class VolunteerController extends Controller
 
     public function confirm(Request $request)
     {
-    	//TODO: Recuperar token de cadastro, removê-lo e atualizar flag de confirmação na tabela de voluntários
-		$token = $request->token;
+    	$token = $request->token;
 		$pendingRegistration = VolunteerPending::where('token', $token)->firstOrFail();
 
 		Volunteer::where('id', $pendingRegistration->volunteer_id)
