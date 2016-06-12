@@ -19,8 +19,12 @@ Route::get('/novo-voluntario', function() {
 	return view('volunteer_form');
 });
 
+Route::get('/novo-voluntario/{zipCode}', 'VolunteerController@showClubsNearby');
+
 Route::post('/registrar-voluntario', 'VolunteerController@register');
 
 Route::get('/confirmar-voluntario/{token}', 'VolunteerController@confirm');
 
 Route::get('/listar-clubes', 'ClubListingController@listAll');
+
+Route::get('/eu-quero', 'VolunteerController@selfService');

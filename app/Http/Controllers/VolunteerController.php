@@ -51,4 +51,16 @@ class VolunteerController extends Controller
 
 		return view('thank_you');
     }
+
+    public function selfService(Request $request)
+    {
+        return view('self_service');
+    }
+
+    public function showClubsNearby(Request $request)
+    {
+        $zipCode = $request->zipCode;
+        
+        return view('clubs_nearby', ['zipCode' => $zipCode]);
+    }
 }
