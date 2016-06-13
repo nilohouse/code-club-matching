@@ -162,9 +162,14 @@ return [
         Vinelab\Http\HttpServiceProvider::class,
 
         /*
-         * Code Club BR Serviice Provider
+         * Code Club BR Service Provider
          */
-        App\Providers\CodeClubBRServiceProvider::class
+        App\Providers\CodeClubBRServiceProvider::class,
+
+        /*
+         * Haversine Formula Provider
+         */
+        App\Providers\HaversineServiceProvider::class
     ],
 
     /*

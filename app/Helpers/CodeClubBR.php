@@ -38,4 +38,9 @@ class CodeClubBR implements CodeClubBRContract
 
 		return $list;
 	}
+
+	public function getHttpClient()
+	{
+		return $this->httpClient;
+	}
 }

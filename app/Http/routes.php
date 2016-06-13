@@ -28,3 +28,5 @@ Route::get('/confirmar-voluntario/{token}', 'VolunteerController@confirm');
 Route::get('/listar-clubes', 'ClubListingController@listAll');
 
 Route::get('/eu-quero', 'VolunteerController@selfService');
+
+Route::get('/debug', 'DebugController@debug');
