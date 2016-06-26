@@ -9,9 +9,17 @@ use App\Http\Requests;
 use App\Volunteer;
 use App\VolunteerPending;
 use App\VolunteerMailData;
+use App\Helpers\Contracts\NearbyClubsListingContract as NearbyClubListing;
 
 class VolunteerController extends Controller
 {
+    protected $nearbyClubListing;
+
+    public function __construct(NearbyClubListing $nearbyClubListing)
+    {
+        $this->nearbyClubListing = $nearbyClubListing;
+    }
+
     public function register(Request $request)
     {
     	$volunteer = new Volunteer;
@@ -60,7 +68,8 @@ class VolunteerController extends Controller
     public function showClubsNearby(Request $request)
     {
         $zipCode = $request->zipCode;
+        $clubsNearby = $this->nearbyClubListing->listClubsNearby($zipCode);        
         
-        return view('clubs_nearby', ['zipCode' => $zipCode]);
+        return view('clubs_nearby', ['zipCode' => $zipCode, 'clubsNearby' => $clubsNearby]);
     }
 }

@@ -21,4 +21,6 @@ class ClubListingController extends Controller
     {
     	return response()->json($this->codeClub->listClubs());
     }
+
+    
 }

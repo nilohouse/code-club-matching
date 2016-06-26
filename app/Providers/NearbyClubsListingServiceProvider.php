@@ -3,9 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Helpers\NearbyClubsListingImpl;
+
+use Vinelab\Http\Client as HttpClient;
 use App\Helpers\HaversineImpl;
 
-class HaversineServiceProvider extends ServiceProvider
+class NearbyClubsListingServiceProvider extends ServiceProvider
 {
     protected $defer = true;
     /**
@@ -25,13 +28,13 @@ class HaversineServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('App\Helpers\Contracts\DistanceCalculatorContract', function() {
-            return new HaversineImpl();
+        $this->app->bind('App\Helpers\Contracts\NearbyClubsListingContract', function() {
+            return new NearbyClubsListingImpl(new HaversineImpl(), new HttpClient());
         });
     }
 
     public function provides()
     {
-        return ['App\Helpers\Contracts\DistanceCalculatorContract'];
+        return ['App\Helpers\Contracts\NearbyClubsListingContract'];
     }
 }

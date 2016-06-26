@@ -169,7 +169,12 @@ return [
         /*
          * Haversine Formula Provider
          */
-        App\Providers\HaversineServiceProvider::class
+        App\Providers\HaversineServiceProvider::class,
+
+        /*
+         * Nearby Clubs Listing Provider
+         */
+        App\Providers\NearbyClubsListingServiceProvider::class
     ],
 
     /*

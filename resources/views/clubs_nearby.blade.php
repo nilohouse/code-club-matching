@@ -10,10 +10,18 @@
             <h4>Clubes próximos ao CEP {{$zipCode}}</h4>
 
             <ul class="c-icon-list">
+              @forelse ($clubsNearby as $club)
                 <li class="c-icon-list__item">
                     <span class="c-icon c-icon--large c-icon--archive"></span>
-                    <span class="c-icon-list__text">Clube XPTO - Endereço aqui - Responsável aqui</span>
+                    <span class="c-icon-list__text">
+                    {{ $club->name }}
+                    </span>
                 </li>
+              @empty
+                <li class="c-icon-list__item">
+                  Nenhum club encontrado
+                </li>
+              @endforelse
             </ul>
           </div>
         </div>
