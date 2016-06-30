@@ -33,3 +33,5 @@ bootstrap/cache/
 
 public/css
 public/icon.png
+
+*.log

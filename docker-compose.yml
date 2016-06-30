@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  mysql:
+    build: ./mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+
+  php-workspace:
+    build:
+      context: ./php-workspace
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/laravel
+    #command: sh php-workspace/init.sh
+    tty: true
