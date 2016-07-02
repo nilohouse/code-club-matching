@@ -3,6 +3,7 @@
 namespace App\Helpers;
 
 use Log;
+use Cache;
 
 use App\Helpers\Contracts\NearbyClubsListingContract;
 use App\Helpers\Contracts\DistanceCalculatorContract as DistanceCalculator;
@@ -34,7 +35,17 @@ class NearbyClubsListingImpl implements NearbyClubsListingContract
             ]
         ];
 
-        $response = $this->httpClient->get($request);
+        if (Cache::has('ccbr_clubs'))
+        {
+        	$response = Cache::get('ccbr_clubs');
+        	Log::info('Read from cache');
+        }
+        else
+        {
+        	$response = $this->httpClient->get($request);
+        	Cache::forever('ccbr_clubs', $response);
+        	Log::info('Updating cache');
+        }
 
         if ( sizeof($response->json()->results) > 0 )
         {
@@ -50,6 +61,8 @@ class NearbyClubsListingImpl implements NearbyClubsListingContract
 
 				if ($distance <= 40)
 				{
+					$club->distance = $distance;
+					Log::info('Club nearby '. $distance);
 					array_push($clubsNearby, $club);
 				}
 				else

@@ -16,6 +16,9 @@ class CreateClubsCoordinatesTable extends Migration
             $table->uuid('club_hash');
             $table->primary('club_hash');
             $table->string('name');
+            $table->string('zipcode');
+            $table->string('admin');
+            $table->string('address');
             $table->double('lat', 10, 6);
             $table->double('lng', 10, 6);
             $table->timestamps();

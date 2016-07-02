@@ -10,4 +10,5 @@ class ClubCoordinates extends Model
     protected $name;
     protected $lat;
     protected $lng;
+    protected $distance;
 }

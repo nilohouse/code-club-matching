@@ -68,7 +68,7 @@ class VolunteerController extends Controller
     public function showClubsNearby(Request $request)
     {
         $zipCode = $request->zipCode;
-        $clubsNearby = $this->nearbyClubListing->listClubsNearby($zipCode);        
+        $clubsNearby = $this->nearbyClubListing->listClubsNearby($zipCode);
         
         return view('clubs_nearby', ['zipCode' => $zipCode, 'clubsNearby' => $clubsNearby]);
     }

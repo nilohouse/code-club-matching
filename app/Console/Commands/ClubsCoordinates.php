@@ -73,6 +73,9 @@ class ClubsCoordinates extends Command
                     $clubCoordinates = new ClubCoordinates;
                     $clubCoordinates->club_hash = $club_hash;
                     $clubCoordinates->name = $club->name;
+                    $clubCoordinates->admin = $club->admin;
+                    $clubCoordinates->zipcode = $club->zipCode;
+                    $clubCoordinates->address = $club->address;
                     $clubCoordinates->lat = doubleval($lat);
                     $clubCoordinates->lng = doubleval($lng);
                     $clubCoordinates->save();
