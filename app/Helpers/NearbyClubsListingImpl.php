@@ -31,7 +31,7 @@ class NearbyClubsListingImpl implements NearbyClubsListingContract
 		$request = [
             'url' => NearbyClubsListingImpl::$GMAPS_URL,
             'params' => [
-                'address' => $zipcode
+                'address' => $zipcode . ", Brasil"
             ]
         ];
 
@@ -59,7 +59,7 @@ class NearbyClubsListingImpl implements NearbyClubsListingContract
 
 				$distance = $this->distanceCalculator->calculate();
 
-				if ($distance <= 40)
+				if ($distance <= 50)
 				{
 					$club->distance = $distance;
 					Log::info('Club nearby '. $distance);
@@ -67,7 +67,7 @@ class NearbyClubsListingImpl implements NearbyClubsListingContract
 				}
 				else
 				{
-					Log::info($distance . ": club too far (skipping)");
+					Log::info($distance . ": club too far (skipping ". $club->zipcode .")");
 				}
 			}
 		}

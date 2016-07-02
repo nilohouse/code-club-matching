@@ -58,7 +58,7 @@ class ClubsCoordinates extends Command
                 $request = [
                     'url' => ClubsCoordinates::$GMAPS_URL,
                     'params' => [
-                        'address' => $club->zipCode
+                        'address' => $club->address . $club->zipCode
                     ]
                 ];
 
