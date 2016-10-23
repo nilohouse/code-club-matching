@@ -16,7 +16,7 @@
 
                         <select name="user-choice" id="user-choice" class="c-form__select c-form__select--inline c-form__select--width-l">
                             <option value="sign-up">ser um voluntário</option>
-                            <option value="find-people">encontrar voluntários para o meu clube</option>
+                            <option value="find-people">encontrar voluntários</option>
                             <option value="find-club">encontrar um clube</option>
                         </select>
 

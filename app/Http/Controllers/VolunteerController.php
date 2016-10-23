@@ -9,17 +9,9 @@ use App\Http\Requests;
 use App\Volunteer;
 use App\VolunteerPending;
 use App\VolunteerMailData;
-use App\Helpers\Contracts\NearbyClubsListingContract as NearbyClubListing;
 
 class VolunteerController extends Controller
 {
-    protected $nearbyClubListing;
-
-    public function __construct(NearbyClubListing $nearbyClubListing)
-    {
-        $this->nearbyClubListing = $nearbyClubListing;
-    }
-
     public function register(Request $request)
     {
     	$volunteer = new Volunteer;
@@ -39,10 +31,12 @@ class VolunteerController extends Controller
     	$mailData->name = $volunteer->name;
     	$mailData->token = $pending->token;
 
-    	Mail::send('emails.welcome', ['mailData' => $mailData], function($message) use ($mailData) {
+    	/*
+        Mail::send('emails.welcome', ['mailData' => $mailData], function($message) use ($mailData) {
     		$message->from('voluntarios@codeclubbrasil.org', 'Code Club Brasil');
     		$message->to($mailData->email);
     	});
+        */
 
     	return view('pending');
     }
@@ -65,11 +59,8 @@ class VolunteerController extends Controller
         return view('self_service');
     }
 
-    public function showClubsNearby(Request $request)
+    public function signUp(Request $request)
     {
-        $zipCode = $request->zipCode;
-        $clubsNearby = $this->nearbyClubListing->listClubsNearby($zipCode);
-        
-        return view('clubs_nearby', ['zipCode' => $zipCode, 'clubsNearby' => $clubsNearby]);
+        return view('volunteer_form');
     }
 }
